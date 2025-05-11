@@ -1,0 +1,141 @@
+/* Fonte e fundo geral */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Tela inicial */
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-color: #0d0d1d;
+}
+
+/* Imagem de capa */
+.cover-img {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+/* Botão de início */
+.start-btn {
+  background-color: #ffcf4a;
+  color: #000;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #f2b600;
+}
+
+/* Container das perguntas */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  max-width: 500px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Estilo dos botões */
+button {
+  background-color: #4b0082;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem auto;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+}
+
+button:hover {
+  background-color: #6a0dad;
+  border: solid 2px #ffcf4a;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo do resultado final */
+.result-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 350px;
+  width: 90w;
+  box-shadow: none;
+  border: none;
+}
+
+/* Imagem final com borda dourada */
+.result-screen img.result-image {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid gold;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 500px) {
+  .container {
+    width: 95vw;
+    padding: 1.5rem;
+    max-height: 95vh;
+  }
+
+  .cover-img {
+    max-width: 90%;
+  }
+
+  .result-screen {
+    padding: 1.5rem;
+    max-width: 95vw;
+  }
+}
+
