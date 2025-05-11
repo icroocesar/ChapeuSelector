@@ -76,6 +76,15 @@ function fadeIn(el) {
 function startQuiz() {
   const startScreen = document.getElementById("startScreen");
   const quiz = document.getElementById("quiz");
+
+  // Cria a barra de progresso apenas se ainda não existir
+  if (!document.querySelector(".progress-bar")) {
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar";
+    progressBar.innerHTML = `<div id="progressFill" class="progress-fill"></div>`;
+    quiz.prepend(progressBar);
+  }
+
   fadeOut(startScreen, () => {
     startScreen.style.display = "none";
     quiz.style.display = "block";
@@ -83,6 +92,14 @@ function startQuiz() {
     fadeIn(quiz);
     renderQuestion();
   });
+}
+
+function updateProgressBar() {
+  const progressFill = document.getElementById("progressFill");
+  const percent = ((currentQuestion + 1) / questions.length) * 100;
+  if (progressFill) {
+    progressFill.style.width = `${percent}%`;
+  }
 }
 
 function renderQuestion() {
@@ -110,6 +127,7 @@ function renderQuestion() {
   });
 
   nextBtn.style.display = 'none';
+  updateProgressBar();
 }
 
 function nextQuestion() {
@@ -152,3 +170,4 @@ function showResult() {
     fadeIn(quiz);
   });
 }
+
